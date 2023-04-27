@@ -1,7 +1,6 @@
 from config.SpiderConfig import SpiderConfig
 from utils.DouyinSpiderUtil import DouyinSpiderUtil
 
-
 def download(up_url):
     config = SpiderConfig(
         "ttwid=1%7CvTO_uJ7LmaveRIOE8nlIwh0MF9NA5UKrFYGNozKNQKM%7C1682424504"
@@ -16,7 +15,6 @@ def download(up_url):
         None
     )
     douyin_spider_instance = DouyinSpiderUtil(config)
-    # 调用爬取单个视频文件方法
     douyin_spider_instance.single_crawling_video(up_url)
 
 
