@@ -1,16 +1,5 @@
 *.pyc
 
-# Packages
-*.egg
-!/tests/**/*.egg
-/*.egg-info
-/dist/*
-build
-_build
-.cache
-*.so
-venv
-
 # Installer logs
 pip-log.txt
 
@@ -40,3 +29,6 @@ pip-wheel-metadata
 /poetry.toml
 
 poetry/core/*
+
+utils/video
+

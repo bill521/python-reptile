@@ -6,22 +6,12 @@ import re
 def create_folder(folder_path):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
-
-
-# 默认保存到相对路径
-def default_create_folder():
-    desktop_path = os.path.join(os.path.expanduser("~"), "Desktop")
-    folder_path = os.path.join(desktop_path, "file")
-    create_folder(folder_path)
-
-
 def print_info(message):
     print(message)
 
 
 def print_success():
     print_info("代码执行成功！")
-
 
 class CrawlingConfig:
     def __init__(self, cookie, user_agent, folder_path):
@@ -40,11 +30,6 @@ class PythonCrawlingDouyinVideoUtil:
         self.folder_path = crawling_config.folder_path
         self.headers = {'cookie': crawling_config.cookie, 'User-Agent': crawling_config.user_agent}
 
-    # UP主抖音视频爬取类
-    def batch_crawling_video(self, url):
-        self.url = url
-        print_success()
-
     # 单个抖音视频爬取类
     def single_crawling_video(self, url):
         self.url = url
@@ -61,14 +46,19 @@ class PythonCrawlingDouyinVideoUtil:
 
     def create_save_video_folder(self):
         if self.folder_path is None:
-            default_create_folder()
+            self.default_create_folder()
         else:
             create_folder(self.folder_path)
+
+    # 默认保存到相对路径
+    def default_create_folder(self):
+        folder_path = os.path.join("video")
+        create_folder(folder_path)
+        self.folder_path = folder_path
 
     def get_title(self):
         title = re.findall('<title data-react-helmet="true">(.*?)</title>', self.response.text)[0]
         self.title = title.replace(" ", "").replace("\n", "")
-        print_info(self.title)
 
     def get_video_url(self):
         html_data = re.findall('src(.*?)%26btag%3D', self.response.text)[1]
@@ -77,8 +67,9 @@ class PythonCrawlingDouyinVideoUtil:
     def download_video_by_video_url(self):
         video_content = requests.get(url=self.video_url, headers=self.headers).content
         with open(self.folder_path + os.path.sep + self.title + '.mp4', mode='wb') as f:
+            print(self.url, self.title, self.video_url)
             f.write(video_content)
-            print(self.title, self.video_url)
+
 
 
 # 调用
@@ -92,11 +83,9 @@ config = CrawlingConfig(
     "__ac_nonce=06447c2cb00b1be795f84; __ac_signature=_02B4Z6wo00f01JB.4VwAAIDAEH0bHpBBnDCQT-XAAEBc4f; "
     "__ac_referer=__ac_blank",
     "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3",
-    'video'
+    None
 )
 
 crawlingDouyinVideo = PythonCrawlingDouyinVideoUtil(config)
-
-# crawlingDouyinVideo.batch_crawling_video('https://www.douyin.com/user/MS4wLjABAAAAAgYJ4nk7s8RVwjHbVpMv0AYGFshAO6aJJE4SnrKtKdT_NUGPuu59BjScgpXHGgH4')
 
 crawlingDouyinVideo.single_crawling_video('https://www.douyin.com/video/7223706135776300345')
