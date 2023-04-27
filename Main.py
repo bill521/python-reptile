@@ -6,14 +6,14 @@ import time
 
 
 def single_download(single_input_url):
-    config = SpiderConfig(None, None, None)
+    config = SpiderConfig(None, None, None, None)
     douyin_spider_instance = DouyinSingleSpider(config.default_harder())
     douyin_spider_instance.crawling_video(single_input_url)
 
 
 def batch_download(input_batch_url):
     urls = re.split('，', input_batch_url)
-    config = SpiderConfig(None, None, None)
+    config = SpiderConfig(None, None, None,"exe")
     douyin_spider_instance = DouyinBatchSpider(config.default_harder())
     for url in urls:
         douyin_spider_instance.crawling_video(url)

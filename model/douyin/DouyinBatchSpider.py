@@ -3,7 +3,6 @@ from model.base.AbstractSpider import AbstractSlider
 from model.douyin.DouyinSingleSpider import DouyinSingleSpider
 from utils.DouyinMessageUtil import print_success
 
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
@@ -12,7 +11,7 @@ class DouyinBatchSpider(AbstractSlider):
 
     def __init__(self, crawling_config):
         AbstractSlider.__init__(self, crawling_config)
-        self.driver = webdriver.Chrome()
+        self.driver = crawling_config.driver
         self.lis = None
 
     def crawling_video(self, url):
@@ -24,8 +23,6 @@ class DouyinBatchSpider(AbstractSlider):
         self.find_videos_by_css_selector()
         self.save_video()
         print_success()
-
-
 
     def requests_get_html(self):
         self.driver.get(self.url)

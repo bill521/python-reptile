@@ -42,3 +42,4 @@ class DouyinSingleSpider(AbstractSlider):
         video_content = requests.get(url=self.video_url, headers=self.headers).content
         with open(self.folder_path + os.path.sep + self.title + '.mp4', mode='wb') as f:
             f.write(video_content)
+            
