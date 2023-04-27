@@ -1,21 +1,25 @@
 from config.SpiderConfig import SpiderConfig
 from model.base.AbstractSpider import AbstractSlider
 from model.douyin.DouyinSingleSpider import DouyinSingleSpider
+from utils import WebDriverUtil
 from utils.DouyinMessageUtil import print_success
 
 from selenium.webdriver.common.by import By
 import time
+import os
 
 
 class DouyinBatchSpider(AbstractSlider):
 
     def __init__(self, crawling_config):
         AbstractSlider.__init__(self, crawling_config)
-        self.driver = crawling_config.driver
+        # path = crawling_config.chrome_path + os.path.sep + "chromedriver.exe"
+        self.driver = WebDriverUtil.create_chrom('./chromedriver.exe')
+        self.url = None
         self.lis = None
 
     def crawling_video(self, url):
-        super.url = url
+        self.url = url
         AbstractSlider.create_save_video_folder(self)
         self.requests_get_html()
         time.sleep(3)

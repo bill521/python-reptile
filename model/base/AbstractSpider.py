@@ -6,7 +6,6 @@ from utils.DouyinFileUtil import create_folder
 class AbstractSlider(ABC):
 
     def __init__(self, crawling_config):
-        self.url = None
         self.folder_path = crawling_config.folder_path
         self.headers = {'cookie': crawling_config.cookie, 'User-Agent': crawling_config.user_agent}
 

@@ -13,8 +13,8 @@ def single_download(single_input_url):
 
 def batch_download(input_batch_url):
     urls = re.split('，', input_batch_url)
-    config = SpiderConfig(None, None, None,"exe")
-    douyin_spider_instance = DouyinBatchSpider(config.default_harder())
+    config = SpiderConfig(None, None, None, None)
+    douyin_spider_instance = DouyinBatchSpider(config.default_selenium_harder())
     for url in urls:
         douyin_spider_instance.crawling_video(url)
         time.sleep(1)
