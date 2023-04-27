@@ -6,12 +6,15 @@ import re
 def create_folder(folder_path):
     if not os.path.exists(folder_path):
         os.makedirs(folder_path)
+
+
 def print_info(message):
     print(message)
 
 
 def print_success():
     print_info("代码执行成功！")
+
 
 class CrawlingConfig:
     def __init__(self, cookie, user_agent, folder_path):
@@ -71,8 +74,7 @@ class PythonCrawlingDouyinVideoUtil:
             f.write(video_content)
 
 
-
-# 调用
+# 设置配置
 config = CrawlingConfig(
     "ttwid=1%7CvTO_uJ7LmaveRIOE8nlIwh0MF9NA5UKrFYGNozKNQKM%7C1682424504"
     "%7C182d57cf452d8ec06cebbdfab649f8a7251a58db51307e7c24f07f4314e6e675; home_can_add_dy_2_desktop=%220%22; "
@@ -86,6 +88,8 @@ config = CrawlingConfig(
     None
 )
 
+# 创建实例
 crawlingDouyinVideo = PythonCrawlingDouyinVideoUtil(config)
 
+# 调用爬取单个视频文件方法
 crawlingDouyinVideo.single_crawling_video('https://www.douyin.com/video/7223706135776300345')
