@@ -22,6 +22,7 @@ def download(up_url):
 if __name__ == '__main__':
     tips = '''
     *************************************************************************************************************
+        抖音视频爬虫
         请输入分享链接，可以输入单个链接，也可输入多个链接。
         单个链接示例：https://v.douyin.com/JeUKHSf/
         多个链接示例：https://v.douyin.com/JeUKHSf/，https://v.douyin.com/JeUKHSf/，https://v.douyin.com/JeUKHSf/
@@ -32,4 +33,4 @@ if __name__ == '__main__':
     input_url = input('请输入：')
     while input_url != 'exit':
         download(input_url)
-        url = input('请输入链接继续或 exit 退出：')
+        input_url = input('请输入链接继续或 exit 退出：')
