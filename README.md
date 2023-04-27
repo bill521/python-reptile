@@ -28,3 +28,5 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyinstaller #清华源
 安装
 Pyinstaller -F -i logo.ico -n douyin-spider Main.py
 ```
+
+#qqqqqqqqqqqqqqq
