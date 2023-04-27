@@ -26,6 +26,5 @@ pip install -i https://pypi.tuna.tsinghua.edu.cn/simple pyinstaller #清华源
 ## 打包成exe
 ```commandline
 安装
-Pyinstaller -F -w -i chengzi.ico py_word.py
-Pyinstaller -F -i logo.ico Main.py
+Pyinstaller -F -i logo.ico -n douyin-spider Main.py
 ```
