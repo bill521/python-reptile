@@ -5,7 +5,7 @@
 ```
 爬取抖音视频脚本
 ``` 
-## 依赖包写入 requirements.txt
+## 依赖包写入 requirements.txt 1
 ```commandline
 pip freeze > requirements.txt
 ```
