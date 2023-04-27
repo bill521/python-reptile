@@ -22,11 +22,15 @@ def download(up_url):
 
 # https://www.douyin.com/video/7223706135776300345
 if __name__ == '__main__':
-    print('*' * 50)
-    print('欢迎使用！！！')
-    print(
-        '请输入类似格式（https://github.com/liangzhuz/python_spider/archive/master.zip）的链接下载文件, 或输入exit退出程序。')
-    print('*' * 50)
+    tips = '''
+    *************************************************************************************************************
+        请输入分享链接，可以输入单个链接，也可输入多个链接。
+        单个链接示例：https://v.douyin.com/JeUKHSf/
+        多个链接示例：https://v.douyin.com/JeUKHSf/，https://v.douyin.com/JeUKHSf/，https://v.douyin.com/JeUKHSf/
+        输入exit退出
+    *************************************************************************************************************
+    '''
+    print(tips)
     input_url = input('请输入：')
     while input_url != 'exit':
         download(input_url)
