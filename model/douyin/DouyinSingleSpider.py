@@ -2,27 +2,12 @@ import os
 import requests
 import re
 
-def create_folder(folder_path):
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path)
+from model.base.AbstractSpider import AbstractSlider
+from utils.DouyinFileUtil import create_folder
+from utils.DouyinMessageUtil import print_success
 
 
-def print_info(message):
-    print(message)
-
-
-def print_success():
-    print_info("代码执行成功！")
-
-
-class CrawlingConfig:
-    def __init__(self, cookie, user_agent, folder_path):
-        self.cookie = cookie
-        self.user_agent = user_agent
-        self.folder_path = folder_path
-
-
-class DouyinSpiderUtil:
+class DouyinSingleSpider(AbstractSlider):
 
     def __init__(self, crawling_config):
         self.title = None
@@ -33,7 +18,7 @@ class DouyinSpiderUtil:
         self.headers = {'cookie': crawling_config.cookie, 'User-Agent': crawling_config.user_agent}
 
     # 单个抖音视频爬取类
-    def single_crawling_video(self, url):
+    def crawling_video(self, url):
         self.url = url
         self.create_save_video_folder()
         self.requests_get_html()
