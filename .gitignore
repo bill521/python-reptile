@@ -1,4 +1,6 @@
 *.pyc
+*.spec
+*.exe
 
 # Installer logs
 pip-log.txt
@@ -7,4 +9,5 @@ Main.spec
 utils/video
 dist
 venv
+build
 
