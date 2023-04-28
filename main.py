@@ -1,4 +1,4 @@
-from config.SpiderConfig import SpiderConfig
+from modules.douyin.config.SpiderConfig import SpiderConfig
 from modules.douyin.api.DouyinBatchSpider import DouyinBatchSpider
 from modules.douyin.api.DouyinSingleSpider import DouyinSingleSpider
 import re

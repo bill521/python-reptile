@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 import time
 
 from commons.utils.DouyinMessageUtil import print_success
-from config.SpiderConfig import SpiderConfig
+from modules.douyin.config.SpiderConfig import SpiderConfig
 from modules.douyin.api.DouyinSingleSpider import DouyinSingleSpider
 from modules.douyin.model.base.AbstractSpider import AbstractSlider
 from commons.utils import WebDriverUtil
