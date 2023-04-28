@@ -6,15 +6,13 @@ from utils.DouyinMessageUtil import print_success
 
 from selenium.webdriver.common.by import By
 import time
-import os
 
 
 class DouyinBatchSpider(AbstractSlider):
 
     def __init__(self, crawling_config):
         AbstractSlider.__init__(self, crawling_config)
-        # path = crawling_config.chrome_path + os.path.sep + "chromedriver.exe"
-        self.driver = WebDriverUtil.create_chrom('./chromedriver.exe')
+        self.driver = WebDriverUtil.create_chrom('D:\\workspace\\python-reptile\\chromedriver.exe\\chromedriver.exe')
         self.url = None
         self.lis = None
 
@@ -37,7 +35,7 @@ class DouyinBatchSpider(AbstractSlider):
     def save_video(self):
         for li in self.lis:
             shared_video_url = li.find_element(By.TAG_NAME, 'a').get_attribute("href")
-            config = SpiderConfig(None, None, None)
+            config = SpiderConfig(None, None, None, None)
             douyin_spider_instance = DouyinSingleSpider(config.default_harder())
             douyin_spider_instance.crawling_video(shared_video_url)
 

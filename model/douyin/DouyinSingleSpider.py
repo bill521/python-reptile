@@ -12,10 +12,11 @@ class DouyinSingleSpider(AbstractSlider):
         self.title = None
         self.video_url = None
         self.response = None
+        self.url = None
 
     # 单个抖音视频爬取类
     def crawling_video(self, url):
-        super.url = url
+        self.url = url
         AbstractSlider.create_save_video_folder(self)
         self.requests_get_html()
         self.get_title()
@@ -27,7 +28,7 @@ class DouyinSingleSpider(AbstractSlider):
         self.response = requests.get(url=self.url, headers=self.headers)
 
     def get_title(self):
-        title = re.findall('<title data-react-helmet="true">(.*?)</title>', self.response.text)[0]
+        title = re.findall('<title data-react-helmet="true">([\s\S]*?)</title>', self.response.text)[0]
         self.title = title.replace(" ", "").replace("\n", "")
 
     def get_video_url(self):
