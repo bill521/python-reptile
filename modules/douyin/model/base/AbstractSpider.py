@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 import os
-from utils.DouyinFileUtil import create_folder
+from commons.utils.DouyinFileUtil import create_folder
 
 
 class AbstractSlider(ABC):

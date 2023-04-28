@@ -2,7 +2,7 @@ import os
 import requests
 import re
 
-from model.base.AbstractSpider import AbstractSlider
+from modules.douyin.model.base.AbstractSpider import AbstractSlider
 
 
 class DouyinSingleSpider(AbstractSlider):

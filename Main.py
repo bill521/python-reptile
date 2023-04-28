@@ -1,6 +1,6 @@
 from config.SpiderConfig import SpiderConfig
-from model.douyin.DouyinBatchSpider import DouyinBatchSpider
-from model.douyin.DouyinSingleSpider import DouyinSingleSpider
+from modules.douyin.api.DouyinBatchSpider import DouyinBatchSpider
+from modules.douyin.api.DouyinSingleSpider import DouyinSingleSpider
 import re
 import time
 

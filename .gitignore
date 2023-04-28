@@ -6,7 +6,7 @@
 pip-log.txt
 Main.spec
 
-utils/video
+commons/utils/video
 dist
 venv
 build
