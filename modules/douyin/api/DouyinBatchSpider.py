@@ -3,7 +3,7 @@ from selenium.webdriver.common.by import By
 import time
 
 from commons.utils.DouyinMessageUtil import print_success
-from modules.douyin.config.SpiderConfig import SpiderConfig
+from config.SpiderConfig import SpiderConfig
 from modules.douyin.api.DouyinSingleSpider import DouyinSingleSpider
 from modules.douyin.model.base.AbstractSpider import AbstractSlider
 from commons.utils import WebDriverUtil
@@ -13,7 +13,7 @@ class DouyinBatchSpider(AbstractSlider):
 
     def __init__(self, crawling_config):
         AbstractSlider.__init__(self, crawling_config)
-        self.driver = WebDriverUtil.create_chrom('D:\\workspace\\python-reptile\\chromedriver.exe\\chromedriver.exe')
+        self.driver = WebDriverUtil.create_chrom(crawling_config.chrome_path)
         self.url = None
         self.lis = None
 

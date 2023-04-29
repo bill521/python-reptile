@@ -10,4 +10,5 @@ commons/utils/video
 dist
 venv
 build
+video
 

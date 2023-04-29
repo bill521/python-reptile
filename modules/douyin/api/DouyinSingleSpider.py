@@ -39,8 +39,7 @@ class DouyinSingleSpider(AbstractSlider):
             self.video_url = requests.utils.unquote(html_data).replace('":"', 'https:')
 
     def download_video_by_video_url(self):
-        print(self.url, self.title, self.video_url)
+        print("下载中...", self.url, self.title, self.video_url)
         video_content = requests.get(url=self.video_url, headers=self.headers).content
         with open(self.folder_path + os.path.sep + self.title + '.mp4', mode='wb') as f:
             f.write(video_content)
-            
